@@ -1,0 +1,67 @@
+* {
+	font-size: 18px;
+	font-family: Ubuntu Mono;
+}
+
+window#waybar {
+	background: #2f343f;
+	color: #afb8c5;
+}
+
+#custom-right-arrow-dark,
+#custom-left-arrow-dark {
+	color: #262934;
+	background: #2f343f;
+}
+
+#custom-right-arrow-light,
+#custom-left-arrow-light {
+	color: #2f343f;
+	background: #262934;
+}
+
+#window,
+#workspaces,
+#clock,
+#memory,
+#cpu,
+#disk,
+#tray {
+	background: #262934;
+}
+
+#workspaces button {
+	padding: 0 2px;
+	color: #fdf6e3;
+}
+#workspaces button.focused {
+	color: #5294e2;
+}
+#workspaces button:hover {
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+#workspaces button:hover {
+	background: #2f343f;
+	border: #2f343f;
+	padding: 0 3px;
+}
+
+
+#memory {
+	color: #afb8c5;
+}
+#cpu {
+	color: #afb8c5;
+}
+
+#disk {
+	color: #afb8c5;
+}
+
+#clock,
+#memory,
+#cpu,
+#disk {
+	padding: 0 10px;
+}
