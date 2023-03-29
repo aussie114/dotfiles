@@ -1,0 +1,151 @@
+font pango:Ubuntu 12
+
+# wallaper
+output * bg /home/headlesschook/Pictures/Wallpapers/crow.png fill
+
+default_border pixel 2
+gaps inner 10
+
+### Variables
+#
+set $mod Mod4
+set $term kitty
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $ws1 "1: command"
+set $ws2 "2: browser"
+set $ws3 "3: graphics"
+set $ws4 "4: godot"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10: gaming"
+set $dark_grey  #2f343f
+set $dark_grey_trans  #2f3440f2
+set $light_grey #525762
+set $dark_red   #492525
+set $light_blue #5294e2
+set $white      #afb8c5
+set $none       #000000
+### Key bindings
+#
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
+bindsym Print exec /home/headlesschook/Programming/screenshot_utility/screenshot_utility.sh 1
+bindsym Control+Print exec /home/headlesschook/Programming/screenshot_utility/screenshot_utility.sh 2
+bindsym Alt+Print exec /home/headlesschook/Programming/screenshot_utility/screenshot_utility.sh 3
+bindsym $mod+e exec kitty -e ranger
+floating_modifier $mod normal
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+h splith
+bindsym $mod+v splitv
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+# Move focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# Move window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# Switch to workspace
+bindsym $mod+1 [instance="feh"] move to workspace number $ws1, workspace number $ws1
+bindsym $mod+2 [instance="feh"] move to workspace number $ws2, workspace number $ws2
+bindsym $mod+3 [instance="feh"] move to workspace number $ws3, workspace number $ws3
+bindsym $mod+4 [instance="feh"] move to workspace number $ws4, workspace number $ws4
+bindsym $mod+5 [instance="feh"] move to workspace number $ws5, workspace number $ws5
+bindsym $mod+6 [instance="feh"] move to workspace number $ws6, workspace number $ws6
+bindsym $mod+7 [instance="feh"] move to workspace number $ws7, workspace number $ws7
+bindsym $mod+8 [instance="feh"] move to workspace number $ws8, workspace number $ws8
+bindsym $mod+9 [instance="feh"] move to workspace number $ws9, workspace number $ws9
+bindsym $mod+0 [instance="feh"] move to workspace number $ws10, workspace number $ws10
+
+
+bindcode $mod+87 [instance="feh"] move to workspace number $ws1, workspace number $ws1
+bindcode $mod+88 [instance="feh"] move to workspace number $ws2, workspace number $ws2
+bindcode $mod+89 [instance="feh"] move to workspace number $ws3, workspace number $ws3
+bindcode $mod+83 [instance="feh"] move to workspace number $ws4, workspace number $ws4
+bindcode $mod+84 [instance="feh"] move to workspace number $ws5, workspace number $ws5
+bindcode $mod+85 [instance="feh"] move to workspace number $ws6, workspace number $ws6
+bindcode $mod+79 [instance="feh"] move to workspace number $ws7, workspace number $ws7
+bindcode $mod+80 [instance="feh"] move to workspace number $ws8, workspace number $ws8
+bindcode $mod+81 [instance="feh"] move to workspace number $ws9, workspace number $ws9
+bindcode $mod+90 [instance="feh"] move to workspace number $ws10, workspace number $ws10
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+bindcode $mod+Shift+87 move container to workspace number $ws1
+bindcode $mod+Shift+88 move container to workspace number $ws2
+bindcode $mod+Shift+89 move container to workspace number $ws3
+bindcode $mod+Shift+83 move container to workspace number $ws4
+bindcode $mod+Shift+84 move container to workspace number $ws5
+bindcode $mod+Shift+85 move container to workspace number $ws6
+bindcode $mod+Shfit+79 move container to workspace number $ws7
+bindcode $mod+Shift+80 move container to workspace number $ws8
+bindcode $mod+Shift+81 move container to workspace number $ws9
+bindcode $mod+Shift+90 move container to workspace number $ws10
+# Resize bindings
+mode "resize" {
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+### window colors
+#                           title border        window border      text                 indicator
+client.focused          $dark_grey          $light_grey        $white               $light_blue
+client.unfocused        $light_grey         $dark_grey         $white               $dark_grey
+client.focused_inactive $light_grey         $dark_grey         $white               $dark_grey
+client.urgent           $dark_red           $dark_red          $white               $none
+### Status Bar:
+#
+bar {
+	position top
+	status_command while /home/headlesschook/Programming/dbar/dbar.sh; do sleep 1; done
+	colors {
+		statusline #ffffff95
+		background $dark_grey_trans
+		active_workspace $dark_grey_trans $dark_grey_trans #5c5c5c
+	}
+}
+### Custom window properties
+#
+for_window [instance="Godot_Editor"] floating enable
+for_window [instance="Godot_Engine"] floating enable
+for_window [app_id = "mpv"] floating enable
+for_window [instance="feh"] floating enable
+
+assign [app_id="firefox"]             $ws2
+assign [class="Gimp"]                 $ws3
+assign [app_id="blender"]             $ws3
+assign [instance="Godot_ProjectList"] $ws4
+assign [class="Steam"]                $ws10
+### Launch programs
+#
+exec udiskie
+exec feh /home/headlesschook/Pictures/Astolfo_small.png
+include /etc/sway/config.d/*
