@@ -1,0 +1,47 @@
+###############
+# Cheat sheet #
+###############
+#
+# ctrl+q = quit
+# backspace = add and start torrent via line
+# ctrl+s = starts torrent
+# ctrl+d = stop a torrent(deletes .torrent if it has been stopped)
+# ctrl+k closes a torrent
+# right arrow = view selected torrent
+# 
+
+#######################################
+# Global upload and download rate in KiB.
+# "0" for unlimited.
+
+throttle.global_down.max_rate.set_kb = 0
+throttle.global_up.max_rate.set_kb = 0
+
+
+#######################################
+# Default directory to save the downloaded torrents.
+#
+
+directory.default.set = /home/headlesschook/Downloads
+
+#######################################
+# Default session directory. Make sure you don't run multiple instance
+# of rTorrent using the same session directory. Perhaps using a
+# relative path?
+
+session.path.set = /home/headlesschook/.session
+
+#######################################
+# Enable DHT support for trackerless torrents or when all trackers are down.
+# May be set to "disable" (completely disable DHT), "off" (do not start DHT),
+# "auto" (start and stop DHT as needed), or "on" (start DHT immediately).
+# The default is "off". For DHT to work, a session directory must be defined.
+#
+dht.mode.set = on
+
+#######################################
+# Watch a directory for new torrents, and stop those that have been
+# deleted.
+#
+schedule2 = watch_directory,5,5,load.start=/home/headlesschook/Downloads/*.torrent
+
